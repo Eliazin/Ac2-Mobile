@@ -23,21 +23,8 @@ public interface servicoApi {
             @Field("dataFinal") String dataFinal,
             @Field("idProfessor") String idProfessor,
             @Field("curso") String curso,
-            @Field("ResumoAula") String resumo
-    );
-
-    @FormUrlEncoded
-    @PUT("/Agenda/{slug}")
-    Call<Void> insertResumo(
-            @Path("slug") String slug,
-            @Field("id") String id,
-            @Field("dataInicial") String dataInicial,
-            @Field("dataFinal") String dataFinal,
-            @Field("idProfessor") String idProfessor,
-            @Field("curso") String curso,
             @Field("resumo") String resumo
     );
-
 
     @GET("/Agenda")
     Call<List<Agenda>> getAgendas();
@@ -54,5 +41,17 @@ public interface servicoApi {
 
     @GET("Professor/{id}")
     Call<Professor> getProfessor(@Path("id") String id);
+
+    @FormUrlEncoded
+    @PUT("/Agenda/{slug}")
+    Call<Void> insertResumo(
+            @Path("slug") String slug,
+            @Field("id") String id,
+            @Field("dataInicial") String dataInicial,
+            @Field("dataFinal") String dataFinal,
+            @Field("idProfessor") String idProfessor,
+            @Field("curso") String curso,
+            @Field("resumo") String resumo
+    );
 
 }

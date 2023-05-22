@@ -49,7 +49,7 @@ public class ListAulas extends AppCompatActivity {
         String url = "https://6462b3a97a9eead6fad4e217.mockapi.io/agenda1/";
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(url) // Substitua pelo seu endpoint base
+                .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -78,14 +78,11 @@ public class ListAulas extends AppCompatActivity {
     private void addRowOnTable(Agenda agenda) {
         TableLayout tableLayout = findViewById(R.id.tableLayout);
 
-        // Criar uma nova linha
         TableRow tableRow = new TableRow(this);
 
-        // Configurar layout dos campos
         TableRow.LayoutParams layoutParams = new TableRow.LayoutParams(TableRow.LayoutParams.WRAP_CONTENT);
         layoutParams.setMargins(10, 10, 10, 10);
 
-        // Criar TextViews para cada campo da agenda
         TextView textViewDataInicio = new TextView(this);
         textViewDataInicio.setLayoutParams(layoutParams);
         textViewDataInicio.setText(agenda.getDataInicio());
@@ -101,7 +98,7 @@ public class ListAulas extends AppCompatActivity {
         String url = "https://6462b3a97a9eead6fad4e217.mockapi.io/agenda1/";
 
         Retrofit retrofit = new Retrofit.Builder()
-                .baseUrl(url) // Substitua pelo seu endpoint base
+                .baseUrl(url)
                 .addConverterFactory(GsonConverterFactory.create())
                 .build();
 
@@ -126,10 +123,9 @@ public class ListAulas extends AppCompatActivity {
         textViewCurso.setLayoutParams(layoutParams);
         textViewCurso.setText(agenda.getCurso());
 
-        // Criar um botão
         Button button = new Button(this);
         button.setLayoutParams(layoutParams);
-        button.setText("+");
+        button.setText("Ver resumo");
 
         button.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,27 +133,25 @@ public class ListAulas extends AppCompatActivity {
                 String mensagem = agenda.getResumo();
 
 
-                Intent intent = new Intent(ListAulas.this, ResumoAula.class);
+                Intent intent = new Intent(ListAulas.this, resumo.class);
                 intent.putExtra("id", agenda.getId());
                 intent.putExtra("dataInicio", agenda.getDataInicio());
                 intent.putExtra("dataFim", agenda.getDataFim());
                 intent.putExtra("idProfessor", agenda.getIdProfessor());
                 intent.putExtra("curso", agenda.getCurso());
-                intent.putExtra("ResumoAula", agenda.getResumo());
+                intent.putExtra("resumo", agenda.getResumo());
 
 
                 startActivity(intent);
             }
         });
 
-        // Adicionar os TextViews à linha
         tableRow.addView(textViewDataInicio);
         tableRow.addView(textViewDataFim);
         tableRow.addView(textViewIdProfessor);
         tableRow.addView(textViewCurso);
         tableRow.addView(button);
 
-        // Adicionar a linha à tabela
         tableLayout.addView(tableRow);
     }
 
