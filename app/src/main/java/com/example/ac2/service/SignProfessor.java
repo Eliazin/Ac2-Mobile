@@ -39,15 +39,15 @@ public class SignProfessor extends AppCompatActivity {
         btnCadastrar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                EditText editNome = findViewById(R.id.editNome);
-                EditText editRG = findViewById(R.id.editRG);
-                EditText editCPF = findViewById(R.id.editCPF);
-                EditText editEndereco = findViewById(R.id.editEndereco);
+                EditText Nome = findViewById(R.id.Nome);
+                EditText RG = findViewById(R.id.RG);
+                EditText CPF = findViewById(R.id.CPF);
+                EditText Endereco = findViewById(R.id.Endereco);
 
-                String nome = editNome.getText().toString();
-                String rg = editRG.getText().toString();
-                String cpf = editCPF.getText().toString();
-                String endereco = editEndereco.getText().toString();
+                String nome = Nome.getText().toString();
+                String rg = RG.getText().toString();
+                String cpf = CPF.getText().toString();
+                String endereco = Endereco.getText().toString();
 
                 signProfessor(nome, rg, cpf, endereco);
             }

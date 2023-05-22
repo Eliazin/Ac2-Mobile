@@ -30,7 +30,7 @@ public class ListAulas extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_item_lista_aulas);
+        setContentView(R.layout.activity_list_aulas);
 
         Button voltarLista = findViewById(R.id.voltarLista);
         voltarLista.setOnClickListener(new View.OnClickListener() {
@@ -115,7 +115,7 @@ public class ListAulas extends AppCompatActivity {
 
             @Override
             public void onFailure(Call<Professor> call, Throwable t) {
-                Log.e("API", "Erro na resposta da API: " + t.getMessage());
+                Log.e("API", "Erro ao receber resposta da API: " + t.getMessage());
             }
         });
 
